@@ -1,12 +1,11 @@
 from sqlalchemy.orm import sessionmaker
 import sys
-import dotenv
 import os
 
-dotenv.load_dotenv()
 
 # Load the sys path necessary to call other database modules
-sys.path.insert(0, os.environ.get("SYS_PATH"))
+sysPath = os.getcwd()+'/sql'
+sys.path.insert(0, sysPath)
 import models
 import database
 
