@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Savings Tracker{% endblock %}
+{% block meta_description %}Savings Tracker{% endblock %}
+
+{% block body %}
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://graphs.rm322.com/d-solo/fc7cf59e-5740-4511-8e40-afa2cd655c6c/bahrain-savings?orgId=1&from=1671960554973&to=1703496554973&panelId=1" allowfullscreen></iframe>
+</div>
+
+<br>
+<div align="center">
+    <form action="/postDeposit" method="POST">
+        <div class="form-row">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control mx-sm-3" name="amount" id="amount" placeholder="1000">
+            <small id="amountHelp" class="form-text text-muted">Input value with or without decimal places.</small>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type" value="ShortTerm">
+            <label class="form-check-label" for="type">Short Term</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type" value="ExtraMortgage">
+            <label class="form-check-label" for="type">Extra Mortgage Principle</label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" value="amount">Submit</button>
+    </form>
+</div>
+{% endblock %}
