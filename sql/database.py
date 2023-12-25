@@ -5,6 +5,7 @@ import os
 
 dotenv.load_dotenv()
 
+# Load the credentials and database
 creds = "{0}:{1}".format(os.environ.get("DB_USER"),os.environ.get("DB_PASS"))
 database = "{0}/{1}".format(os.environ.get("DB_HOST"),os.environ.get("DB_DATABASE"))
 
@@ -15,9 +16,3 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
