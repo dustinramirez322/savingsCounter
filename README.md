@@ -25,9 +25,11 @@ Example page:
                        How much did you deposit?
                             |---input---|
 
--------------------------------------------------------------------------
 
-Basic directory structure:
+
+Basic file structure:
+-------------------------------------------------------------------------
+```
 .
 ├── app
 │   ├── __init__.py
@@ -51,7 +53,8 @@ Basic directory structure:
     ├── crud.py
     ├── database.py
     └── models.py
-
+```
 
 Example data input:
+-------------------------------------------------------------------------
 input = {'date': '2023-12-24', 'year': '2023', 'amount': '1000', 'ShortTerm': 15000.0}
