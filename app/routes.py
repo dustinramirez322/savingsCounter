@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, url_for, request, make_response, session
+from flask import render_template, redirect, url_for, request, make_response
 from datetime import datetime
 import sql.crud as crud
 
@@ -18,6 +18,10 @@ def postDeposit():
     date = datetime.now().strftime('%Y-%m-%d')
     year = datetime.now().strftime('%Y')
     amount = request.form["amount"]
+    try:
+        float(amount)
+    except ValueError:
+        return render_template('404.html'), 404
     type = request.form["type"]
     # Consolidate this into out input type
     input = {'date': date, 'year': year, 'amount': amount}
@@ -34,7 +38,6 @@ def postDeposit():
     return redirect(url_for('home'))
 
 
-
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found():
     return render_template('404.html'), 404

@@ -11,6 +11,7 @@ import database
 
 engine = database.engine
 
+
 def post_new(input, type):
     Session = sessionmaker(bind=engine)
     session = Session()
