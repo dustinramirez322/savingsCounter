@@ -2,9 +2,9 @@ Created to track my personal savings over a course of two years.
 
 The project is composed of:
 
-1. Flask running a single page that:
-   a. Displays a graph pulled from my grafana server
-   b. Allows me to input new desposits that will be posted to my sql server
+1. Flask running a single page that:  
+   a. Displays a graph pulled from my grafana server  
+   b. Allows me to input new desposits that will be posted to my sql server  
 2. Reachable grafana server
 3. Reachable sql server
 
@@ -61,16 +61,10 @@ input = {'date': '2023-12-24', 'year': '2023', 'amount': '1000', 'ShortTerm': 15
 
 Example .env file:
 -------------------------------------------------------------------------
-DB_USER=''
-
-DB_PASS=''
-
-DB_HOST=''
-
-DB_PORT=''
-
-DB_DATABASE=''
-
-SITE_DOMAIN=''
-
-GRAFANA_PAGE=''
+DB_USER=''  
+DB_PASS=''  
+DB_HOST=''  
+DB_PORT=''  
+DB_DATABASE=''  
+SITE_DOMAIN=''  
+GRAFANA_PAGE=''  
