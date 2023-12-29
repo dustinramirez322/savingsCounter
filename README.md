@@ -13,14 +13,14 @@ Example page:
 
 
                      -----------------------------
-                    |                    x .  .   |
-                    |                 x .         |
-                    |             x  .            |
-                    |         x.           +   +  |
-                    |    x.  .   +   +   +        |
-                    |  x.+   +                    |
+                    |                    x        |
+                    |                 x           |
+                    |             x               |
+                    |         x            +   +  |
+                    |    x       +   +   +        |
+                    |  x +   +                    |
                      -----------------------------
-                   .=short-term x=401k +=extra house
+                     x=short-term +=extra mortgage
 
                        How much did you deposit?
                             |---input---|
