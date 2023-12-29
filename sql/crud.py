@@ -12,14 +12,14 @@ import database
 engine = database.engine
 
 
-def post_new(input, type):
+def post_new(amount, deposit_type):
     Session = sessionmaker(bind=engine)
     session = Session()
     # determine which table to insert the new data into based of the deposit type
-    if type == 'ShortTerm':
-        new_data = models.ShortTerm(**input)
-    if type == 'ExtraMortgage':
-        new_data = models.ExtraMortgage(**input)
+    if deposit_type == 'ShortTerm':
+        new_data = models.ShortTerm(**amount)
+    if deposit_type == 'ExtraMortgage':
+        new_data = models.ExtraMortgage(**amount)
 
     try:
         # Add the new data to the database
@@ -34,19 +34,19 @@ def post_new(input, type):
         pass
 
 
-def get_total(type):
+def get_total(deposit_type):
     Session = sessionmaker(bind=engine)
     session = Session()
-    list = []
+    deposit_list = []
     # Get all the deposits currently in the selected table type
-    if type == 'ShortTerm':
+    if deposit_type == 'ShortTerm':
         answer = session.query(models.ShortTerm).all()
-    if type == 'ExtraMortgage':
+    if deposit_type == 'ExtraMortgage':
         answer = session.query(models.ExtraMortgage).all()
     # Create a list of all deposits
     for a in answer:
-        list.append(float(a.amount))
+        deposit_list.append(float(a.amount))
     session.commit()
     session.close()
     # Return the sum of all deposits in the list and round the float to two decimal places
-    return round(sum(list), 2)
+    return round(sum(deposit_list), 2)
