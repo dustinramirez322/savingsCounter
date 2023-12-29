@@ -39,5 +39,6 @@ def postDeposit():
 
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(e):
+    print(e)
     return render_template('404.html'), 404
