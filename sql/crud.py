@@ -1,11 +1,4 @@
 from sqlalchemy.orm import sessionmaker
-import sys
-import os
-
-
-# Load the sys path necessary to call other database modules
-#sysPath = os.getcwd()+'/sql'
-#sys.path.insert(0, sysPath)
 import models
 import database
 
