@@ -30,7 +30,7 @@ def postDeposit():
         total = crud.get_total(deposit_type) + float(amount)
         deposit_input[deposit_type] = total
         # Post this new input along with the type of deposit using the post_new function
-        crud.post_new(input, deposit_type)
+        crud.post_new(deposit_input, deposit_type)
     except Exception as e:
         # If it fails log the error
         print(e)
