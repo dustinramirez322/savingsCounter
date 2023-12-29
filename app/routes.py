@@ -22,15 +22,15 @@ def postDeposit():
         float(amount)
     except ValueError:
         return render_template('404.html'), 404
-    type = request.form["type"]
+    deposit_type = request.form["type"]
     # Consolidate this into out input type
-    input = {'date': date, 'year': year, 'amount': amount}
+    deposit_input = {'date': date, 'year': year, 'amount': amount}
     try:
         # Get the final portion of our input type by calling the get_total function and adding our current deposit
-        total = crud.get_total(type) + float(amount)
-        input[type] = total
+        total = crud.get_total(deposit_type) + float(amount)
+        deposit_input[deposit_type] = total
         # Post this new input along with the type of deposit using the post_new function
-        crud.post_new(input, type)
+        crud.post_new(input, deposit_type)
     except Exception as e:
         # If it fails log the error
         print(e)
