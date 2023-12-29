@@ -55,6 +55,22 @@ Basic file structure:
     └── models.py
 ```
 
-Example data input:
+Example db table/ data input:
 -------------------------------------------------------------------------
 input = {'date': '2023-12-24', 'year': '2023', 'amount': '1000', 'ShortTerm': 15000.0}
+
+Example .env file:
+-------------------------------------------------------------------------
+DB_USER=''
+
+DB_PASS=''
+
+DB_HOST=''
+
+DB_PORT=''
+
+DB_DATABASE=''
+
+SITE_DOMAIN=''
+
+GRAFANA_PAGE=''
