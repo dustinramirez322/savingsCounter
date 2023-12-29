@@ -2,12 +2,14 @@ from app import app
 from flask import render_template, redirect, url_for, request, make_response
 from datetime import datetime
 import sql.crud as crud
+import dotenv
+import os
 
-
+dotenv.load_dotenv()
 # Basic homepage that displays index.html
 @app.route('/')
 def home():
-    resp = make_response(render_template('index.html'))
+    resp = make_response(render_template('index.html', grafana_page=os.environ.get("GRAFANA_PAGE")))
     return resp
 
 
