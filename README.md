@@ -47,12 +47,11 @@ Basic file structure:
 │       ├── index.html
 │       └── layouts
 │           └── base.html
-├── app.py
-├── notes.txt
-└── sql
-    ├── crud.py
-    ├── database.py
-    └── models.py
+├── sql
+│   ├── crud.py
+│   ├── database.py
+│   └── models.py
+└── app.py
 ```
 
 Example db table/ data input:
