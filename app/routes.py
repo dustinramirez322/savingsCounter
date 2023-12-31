@@ -1,20 +1,21 @@
-from app import app
-from flask import render_template, redirect, url_for, request, make_response
+from flask import Blueprint, render_template, redirect, url_for, request, make_response
 from datetime import datetime
 import sql.crud as crud
 import dotenv
 import os
 
+savings = Blueprint('savings', __name__)
+
 dotenv.load_dotenv()
 # Basic homepage that displays index.html
-@app.route('/')
+@savings.route('/')
 def home():
     resp = make_response(render_template('index.html', grafana_page=os.environ.get("GRAFANA_PAGE")))
     return resp
 
 
 # Page that is POSTed to upon pressing the submit button on the home page
-@app.route('/postDeposit', methods=['POST'])
+@savings.route('/postDeposit', methods=['POST'])
 def postDeposit():
     # Get date information and pull information from the web form
     date = datetime.now().strftime('%Y-%m-%d')
@@ -40,7 +41,7 @@ def postDeposit():
     return redirect(url_for('home'))
 
 
-@app.errorhandler(404)
+@savings.errorhandler(404)
 def page_not_found(e):
     print(e)
     return render_template('404.html'), 404
