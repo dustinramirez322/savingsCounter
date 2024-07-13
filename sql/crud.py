@@ -9,8 +9,14 @@ def post_new(amount, deposit_type):
     Session = sessionmaker(bind=engine)
     session = Session()
     # determine which table to insert the new data into based of the deposit type
-    if deposit_type == 'ShortTerm':
-        new_data = models.ShortTerm(**amount)
+    if deposit_type == 'sdp':
+        new_data = models.sdp(**amount)
+    if deposit_type == 'certificate':
+        new_data = models.certificate(**amount)
+    if deposit_type == 'tbill':
+        new_data = models.tbill(**amount)
+    if deposit_type == 'vanguard':
+        new_data = models.vanguard(**amount)
     if deposit_type == 'ExtraMortgage':
         new_data = models.ExtraMortgage(**amount)
 
@@ -51,6 +57,6 @@ def get_type_total(deposit_type):
     return round(sum(deposit_list), 2)
 
 
-def get_all total():
+def get_all_total():
     pass
 

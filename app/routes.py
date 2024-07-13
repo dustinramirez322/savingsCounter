@@ -38,7 +38,7 @@ def postDeposit():
         # If it fails log the error
         print(e)
     # Send the user back to the home page
-    return redirect(url_for('home'))
+    return redirect(url_for('savings.home'))
 
 
 @savings.errorhandler(404)
