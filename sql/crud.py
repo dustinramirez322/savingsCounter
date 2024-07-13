@@ -61,6 +61,20 @@ def get_type_total(deposit_type):
 def update_type_total(deposit_type, total):
     Session = sessionmaker(bind=engine)
     session = Session()
+    if deposit_type == 'sdp':
+        record = session.query(models.sdp).filter(models.sdp.date == "2025-12-31").one_or_none()
+        record.sdp = total
+    if deposit_type == 'certificate':
+        record = session.query(models.certificate).filter(models.certificate.date == "2025-12-31").one_or_none()
+        record.certificate = total
+    if deposit_type == 'tbill':
+        record = session.query(models.tbill).filter(models.tbill.date == "2025-12-31").one_or_none()
+        record.tbill = total
+    if deposit_type == 'vanguard':
+        record = session.query(models.vanguard).filter(models.vanguard.date == "2025-12-31").one_or_none()
+        record.vanguard = total
+    if deposit_type == 'ExtraMortgage':
+        answer = session.query(models.ExtraMortgage).all()
     deposit_input = {'date': '2025-12-31', 'year': '2025', 'amount': 0}
     deposit_input[deposit_type] = total
 
