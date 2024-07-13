@@ -47,7 +47,7 @@ def get_type_total(deposit_type):
     if deposit_type == 'vanguard':
         answer = session.query(models.vanguard).all()
     if deposit_type == 'ExtraMortgage':
-        answer = session.query(models.ExtraMortgage).all()
+        pass
     # Create a list of all deposits
     for a in answer:
         deposit_list.append(float(a.amount))
