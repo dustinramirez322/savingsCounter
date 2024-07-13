@@ -57,6 +57,19 @@ def get_type_total(deposit_type):
     return round(sum(deposit_list), 2)
 
 
+
+def update_type_total(deposit_type, total):
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    deposit_input = {'date': '2025-12-31', 'year': '2025', 'amount': 0}
+    deposit_input[deposit_type] = total
+
+    session.commit()
+    session.close()
+
+
+
 def get_all_total():
+    types = ['sdp', 'certificate', 'tbill', 'vanguard']
     pass
 

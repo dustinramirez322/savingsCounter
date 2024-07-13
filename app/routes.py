@@ -31,6 +31,8 @@ def postDeposit():
     try:
         # Get the final portion of our input type by calling the get_total function and adding our current deposit
         total = crud.get_type_total(deposit_type) + float(amount)
+        # Update final month for graph purposes
+#        crud.update_type_total(deposit_type, total)
         deposit_input[deposit_type] = total
         # Post this new input along with the type of deposit using the post_new function
         crud.post_new(deposit_input, deposit_type)
