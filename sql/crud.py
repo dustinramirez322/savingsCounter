@@ -47,7 +47,7 @@ def get_type_total(deposit_type):
     if deposit_type == 'vanguard':
         answer = session.query(models.vanguard).all()
     if deposit_type == 'ExtraMortgage':
-        pass
+        answer = session.query(models.ExtraMortgage).all()
     # Create a list of all deposits
     for a in answer:
         deposit_list.append(float(a.amount))
@@ -74,10 +74,8 @@ def update_type_total(deposit_type, total):
         record = session.query(models.vanguard).filter(models.vanguard.date == "2025-12-31").one_or_none()
         record.vanguard = total
     if deposit_type == 'ExtraMortgage':
-        answer = session.query(models.ExtraMortgage).all()
-    deposit_input = {'date': '2025-12-31', 'year': '2025', 'amount': 0}
-    deposit_input[deposit_type] = total
-
+        record = session.query(models.ExtraMortgage).filter(models.ExtraMortgage.date == "2025-12-31").one_or_none()
+        record.ExtraMortgage = total
     session.commit()
     session.close()
 
