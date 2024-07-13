@@ -20,3 +20,39 @@ class ShortTerm(Base):
     year = Column(Integer)
     amount = Column(DECIMAL)
     ShortTerm = Column(DECIMAL)
+
+
+class sdp(Base):
+    __tablename__ = "sdp"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    sdp = Column(DECIMAL)
+
+
+class certificate(Base):
+    __tablename__ = "certificate"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    certificate = Column(DECIMAL)
+
+
+class tbill(Base):
+    __tablename__ = "tbill"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    tbill = Column(DECIMAL)
+
+
+class vanguard(Base):
+    __tablename__ = "vanguard"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    vanguard = Column(DECIMAL)

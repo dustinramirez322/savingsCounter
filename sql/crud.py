@@ -27,13 +27,19 @@ def post_new(amount, deposit_type):
         pass
 
 
-def get_total(deposit_type):
+def get_type_total(deposit_type):
     Session = sessionmaker(bind=engine)
     session = Session()
     deposit_list = []
     # Get all the deposits currently in the selected table type
-    if deposit_type == 'ShortTerm':
-        answer = session.query(models.ShortTerm).all()
+    if deposit_type == 'sdp':
+        answer = session.query(models.sdp).all()
+    if deposit_type == 'certificate':
+        answer = session.query(models.certificate).all()
+    if deposit_type == 'tbill':
+        answer = session.query(models.tbill).all()
+    if deposit_type == 'vanguard':
+        answer = session.query(models.vanguard).all()
     if deposit_type == 'ExtraMortgage':
         answer = session.query(models.ExtraMortgage).all()
     # Create a list of all deposits
@@ -43,3 +49,8 @@ def get_total(deposit_type):
     session.close()
     # Return the sum of all deposits in the list and round the float to two decimal places
     return round(sum(deposit_list), 2)
+
+
+def get_all total():
+    pass
+
