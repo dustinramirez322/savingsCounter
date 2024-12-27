@@ -7,4 +7,4 @@ app.config['SECRET_KEY'] = uuid.uuid4().hex
 app.register_blueprint(savings)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -13,6 +13,11 @@ def home():
     resp = make_response(render_template('index.html', grafana_page=os.environ.get("GRAFANA_PAGE")))
     return resp
 
+@savings.route('/total')
+def total():
+    resp = make_response(render_template('total.html', grafana_total_page=os.environ.get("GRAFANA_TOTAL_PAGE")))
+    return resp
+
 
 # Page that is POSTed to upon pressing the submit button on the home page
 @savings.route('/postDeposit', methods=['POST'])
