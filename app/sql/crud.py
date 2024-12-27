@@ -80,8 +80,32 @@ def update_type_total(deposit_type, total):
     session.close()
 
 
+def get_current_total():
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    rows = session.query(models.total).count()
+    total_rows = int(str(rows))
+    totals = session.query(models.total).order_by('total')
+    current_total = str(totals[total_rows-1].total)
+    session.commit()
+    session.close()
+    return current_total
 
-def get_all_total():
-    types = ['sdp', 'certificate', 'tbill', 'vanguard']
-    pass
+
+def update_total(total_update):
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    new_data = models.total(**total_update)
+
+    try:
+        # Add the new data to the database
+        session.add(new_data)
+        session.commit()
+        session.close()
+
+    except Exception as e:
+        # print error and close the session if it fails
+        print(e)
+        session.close()
+        pass
 

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DECIMAL, DATE, Integer
+from sqlalchemy import Column, DECIMAL, DATE, Integer, VARCHAR
 from database import Base
 
 
@@ -56,3 +56,13 @@ class vanguard(Base):
     year = Column(Integer)
     amount = Column(DECIMAL)
     vanguard = Column(DECIMAL)
+
+
+class total(Base):
+    __tablename__ = "totals"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    type = Column(VARCHAR)
+    total = Column(DECIMAL)
