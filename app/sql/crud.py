@@ -19,6 +19,9 @@ def post_new(amount, deposit_type):
         new_data = models.vanguard(**amount)
     if deposit_type == 'ExtraMortgage':
         new_data = models.ExtraMortgage(**amount)
+    if deposit_type == 'schwab':
+        new_data = models.schwab(**amount)
+
 
     try:
         # Add the new data to the database
@@ -48,6 +51,9 @@ def get_type_total(deposit_type):
         answer = session.query(models.vanguard).all()
     if deposit_type == 'ExtraMortgage':
         answer = session.query(models.ExtraMortgage).all()
+    if deposit_type == 'schwab':
+        answer = session.query(models.schwab).all()
+
     # Create a list of all deposits
     for a in answer:
         deposit_list.append(float(a.amount))
@@ -76,6 +82,9 @@ def update_type_total(deposit_type, total):
     if deposit_type == 'ExtraMortgage':
         record = session.query(models.ExtraMortgage).filter(models.ExtraMortgage.date == "2025-12-31").one_or_none()
         record.ExtraMortgage = total
+    if deposit_type == 'schwab':
+        record = session.query(models.schwab).filter(models.schwab.date == "2025-12-31").one_or_none()
+        record.schwab = total
     session.commit()
     session.close()
 

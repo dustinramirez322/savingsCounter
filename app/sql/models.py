@@ -58,6 +58,15 @@ class vanguard(Base):
     vanguard = Column(DECIMAL)
 
 
+class schwab(Base):
+    __tablename__ = "schwab"
+
+    date = Column(DATE, primary_key=True)
+    year = Column(Integer)
+    amount = Column(DECIMAL)
+    schwab = Column(DECIMAL)
+
+
 class total(Base):
     __tablename__ = "totals"
 
